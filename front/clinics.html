@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearSmile - Найдите клинику</title>
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Подключение шрифта Inter с Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Белый фон */
+        }
+        .text-brand {
+            color: #4DC7E3;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <div class="container mx-auto px-4 py-12 lg:py-24 max-w-7xl">
+        <!-- Блок с заголовком и подзаголовком -->
+        <div class="text-center mb-12 lg:mb-16">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                <span class="text-brand">Найдите клинику</span> рядом с вами.
+            </h1>
+            <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+                Мы сотрудничаем с клиниками по всей стране. Найдите клинику, которая расположена рядом с вами и начните путь к идеальной улыбке.
+            </p>
+        </div>
+
+        <!-- Поисковая строка -->
+        <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16">
+            <input id="search-input" type="text" placeholder="Введите город или название клиники" class="w-full sm:w-80 lg:w-96 px-6 py-4 border border-gray-200 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#4DC7E3] focus:border-transparent transition-all">
+            <button id="search-button" class="bg-[#4DC7E3] text-white font-medium py-4 px-8 rounded-full shadow-lg hover:bg-[#34b0d6] transition-colors w-full sm:w-auto">
+                Найти
+            </button>
+        </div>
+
+        <!-- Блок с карточками клиник -->
+        <div id="clinics-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Карточки будут сгенерированы здесь с помощью JavaScript -->
+        </div>
+        
+        <!-- Сообщение, если ничего не найдено -->
+        <div id="no-results-message" class="hidden text-center text-gray-500 text-lg mt-8">
+            К сожалению, по вашему запросу ничего не найдено. Попробуйте изменить критерии поиска.
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="bg-white py-8 text-center text-gray-500 text-sm mt-12 border-t border-gray-100">
+        &copy; 2024 ClearSmile. Все права защищены.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Массив с данными о клиниках (мокап)
+            const allClinics = [
+                {
+                    name: "Клиника Доктора Смирнова",
+                    city: "Москва",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "ул. Ленина, 52, Москва",
+                    phone: "+7 (495) 123-45-67",
+                    doctor: "Главный врач: Смирнов П.А.",
+                    experience: "10 лет опыта с элайнерами",
+                },
+                {
+                    name: "Дентал-центр \"Улыбка\"",
+                    city: "Санкт-Петербург",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "пр-т Мира, 78, Санкт-Петербург",
+                    phone: "+7 (812) 987-65-43",
+                    doctor: "Врач-ортодонт: Иванова Н.В.",
+                    experience: "8 лет опыта",
+                },
+                {
+                    name: "Ортодонт-студия",
+                    city: "Казань",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "ул. Пушкинская, 15, Казань",
+                    phone: "+7 (843) 234-56-78",
+                    doctor: "Ведущий специалист: Петров Д.А.",
+                    experience: "12 лет опыта",
+                },
+                {
+                    name: "Клиника идеальной улыбки",
+                    city: "Краснодар",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "ул. Красная, 9, Краснодар",
+                    phone: "+7 (861) 345-67-89",
+                    doctor: "Доктор: Сергеева О.В.",
+                    experience: "6 лет опыта",
+                },
+                {
+                    name: "Перфект-стоматология",
+                    city: "Екатеринбург",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "ул. Горького, 12, Екатеринбург",
+                    phone: "+7 (343) 456-78-90",
+                    doctor: "Ортодонт: Николаев И.Н.",
+                    experience: "9 лет опыта",
+                },
+                {
+                    name: "Клиника \"Новая Улыбка\"",
+                    city: "Новосибирск",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "пр-т Победы, 35, Новосибирск",
+                    phone: "+7 (383) 567-89-01",
+                    doctor: "Врач: Кузнецова В.Ю.",
+                    experience: "7 лет опыта",
+                },
+                {
+                    name: "Эстетика Дент",
+                    city: "Воронеж",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "ул. Советская, 88, Воронеж",
+                    phone: "+7 (473) 678-90-12",
+                    doctor: "Специалист: Федоров А.С.",
+                    experience: "15 лет опыта",
+                },
+                {
+                    name: "Центр ортодонтии",
+                    city: "Самара",
+                    photo: "https://avatars.mds.yandex.net/get-altay/235931/2a00000187b2bba2a3c997527550d7f24053/L_height",
+                    address: "ул. Ленина, 23, Самара",
+                    phone: "+7 (846) 789-01-23",
+                    doctor: "Врач: Лебедева З.И.",
+                    experience: "11 лет опыта",
+                }
+            ];
+
+            const clinicsGrid = document.getElementById('clinics-grid');
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const noResultsMessage = document.getElementById('no-results-message');
+
+            // Функция для генерации HTML-карточек
+            const generateCards = (clinicsToDisplay) => {
+                // Если нет клиник для отображения
+                if (clinicsToDisplay.length === 0) {
+                    clinicsGrid.innerHTML = '';
+                    noResultsMessage.classList.remove('hidden');
+                    return;
+                }
+
+                noResultsMessage.classList.add('hidden');
+                
+                // Генерация HTML для каждой карточки
+                const cardsHtml = clinicsToDisplay.map(clinic => `
+                    <div class="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center text-center transition-transform hover:scale-105 duration-300">
+                        <div class="w-full h-56 overflow-hidden rounded-2xl mb-4">
+                            <img src="${clinic.photo}" alt="Фото клиники ${clinic.name}" class="w-full h-full object-cover rounded-2xl">
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 mb-2">${clinic.name}</h3>
+                        
+                        <div class="flex flex-col items-start text-left w-full space-y-2 text-sm text-gray-600 mb-6">
+                            <!-- Иконка и адрес -->
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                                <span>${clinic.address}</span>
+                            </div>
+                            <!-- Иконка и телефон -->
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2.05A19.95 19.95 0 0 1 1.82 2.18 2 2 0 0 1 2.05 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L5.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                                <span>${clinic.phone}</span>
+                            </div>
+                            <!-- Иконка и врач -->
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="7" r="4" />
+                                    <path d="M12 11c-3.1 0-6 2.4-6 6v4h12v-4c0-3.6-2.9-6-6-6z" />
+                                </svg>
+                                <span>${clinic.doctor}</span>
+                            </div>
+                            <!-- Иконка и опыт -->
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+                                </svg>
+                                <span>${clinic.experience}</span>
+                            </div>
+                            <!-- Иконка и кнопка "на карте" -->
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12A10 10 0 1 1 12 2a10 10 0 0 1 10 10z" />
+                                    <path d="M18 13v-2a6 6 0 0 0-12 0v2" />
+                                </svg>
+                                <a href="#" class="text-[#4DC7E3] hover:underline">Показать на карте</a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                clinicsGrid.innerHTML = cardsHtml;
+            };
+
+            // Функция для поиска клиник
+            const searchClinics = () => {
+                const query = searchInput.value.toLowerCase().trim();
+                const filteredClinics = allClinics.filter(clinic => 
+                    clinic.name.toLowerCase().includes(query) ||
+                    clinic.address.toLowerCase().includes(query) ||
+                    clinic.city.toLowerCase().includes(query)
+                );
+                generateCards(filteredClinics);
+            };
+
+            // Привязка слушателей событий
+            searchButton.addEventListener('click', searchClinics);
+            searchInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    searchClinics();
+                }
+            });
+
+            // Первоначальная загрузка всех клиник
+            generateCards(allClinics);
+        });
+    </script>
+</body>
+</html>

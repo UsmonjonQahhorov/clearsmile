@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы и Ответы | ClearSmile</title>
+    <!-- Подключение шрифта Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a202c; /* Базовый темный цвет текста */
+        }
+        .text-brand {
+            color: #4DC7E3;
+        }
+        .bg-brand {
+            background-color: #4DC7E3;
+        }
+        /* Анимация для аккордеона */
+        .accordion-content {
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 1.5rem; /* Задаем паддинг для анимации */
+        }
+        .accordion-content.expanded {
+            max-height: 500px; /* Достаточно большое значение для плавного разворачивания */
+            padding: 1.5rem;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease-out;
+        }
+        .accordion-button[aria-expanded="true"] .accordion-icon {
+            transform: rotate(45deg);
+        }
+        .btn-large {
+            min-height: 48px;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Основной контейнер страницы -->
+    <div class="container mx-auto px-4 md:px-8 py-12 md:py-16">
+        
+        <!-- Заголовок страницы -->
+        <header class="text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                <span class="text-brand">Наш врач</span> ответил на частые вопросы
+            </h1>
+        </header>
+    </div>
+    
+    <div class="bg-white">
+        <section class="p-6 md:p-12 max-w-5xl mx-auto">
+            <!-- Разделение для информации о враче и вопросов -->
+            <div class="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16">
+                
+                <!-- Информация о враче (левая часть на больших экранах) -->
+                <div class="flex flex-col items-center lg:items-start text-center lg:text-left lg:w-1/3">
+                    <!-- Карточка с фото и текстом -->
+                    <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-6">
+                        <img src="https://img.freepik.com/premium-photo/vertical-medium-studio-portrait-modern-female-doctor-wearing-eyeglasses-white-coat-standing-w_622301-2342.jpg" alt="Фотография доктора Елены Ивановой" class="object-cover w-full h-full">
+                        <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-6">
+                            <h2 class="text-xl md:text-2xl font-bold text-white drop-shadow-md">Доктор Елена Иванова</h2>
+                            <p class="text-md font-medium text-brand drop-shadow-sm">Ортодонт</p>
+                            <p class="text-sm font-light text-white/80 drop-shadow-sm">20+ лет опыта</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Описание врача под карточкой -->
+                    <p class="text-gray-700 leading-relaxed text-sm md:text-base max-w-2xl text-center lg:text-left">
+                        Доктор Елена Иванова — ведущий специалист с более чем 20-летним опытом. Благодаря глубоким знаниям и работе с элайнерами, она подбирает индивидуальные решения для каждого пациента.
+                    </p>
+                </div>
+                
+                <!-- Список вопросов (правая часть на больших экранах) -->
+                <div class="w-full max-w-3xl space-y-4 lg:w-2/3">
+                     <!-- Заголовок для FAQ -->
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Частые вопросы</h3>
+                    <!-- Вопрос 1 -->
+                    <div class="accordion-item rounded-xl overflow-hidden shadow-md">
+                        <button class="accordion-button w-full text-left p-4 md:p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 flex justify-between items-center btn-large text-sm md:text-lg font-medium" aria-expanded="false">
+                            <span class="mr-4 text-gray-800">Что такое элайнеры и как они работают?</span>
+                            <span class="accordion-icon text-brand font-bold text-3xl leading-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content bg-white text-gray-700">
+                            Элайнеры — это прозрачные капы, которые изготавливаются индивидуально для вас. Они постепенно, но эффективно перемещают зубы в нужное положение, согласно плану, разработанному вашим ортодонтом.
+                        </div>
+                    </div>
+                    
+                    <!-- Вопрос 2 -->
+                    <div class="accordion-item rounded-xl overflow-hidden shadow-md">
+                        <button class="accordion-button w-full text-left p-4 md:p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 flex justify-between items-center btn-large text-sm md:text-lg font-medium" aria-expanded="false">
+                            <span class="mr-4 text-gray-800">Сколько времени занимает лечение элайнерами?</span>
+                            <span class="accordion-icon text-brand font-bold text-3xl leading-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content bg-white text-gray-700">
+                            Продолжительность лечения индивидуальна и зависит от сложности случая. В среднем, курс занимает от 6 до 18 месяцев.
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="accordion-item rounded-xl overflow-hidden shadow-md">
+                        <button class="accordion-button w-full text-left p-4 md:p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 flex justify-between items-center btn-large text-sm md:text-lg font-medium" aria-expanded="false">
+                            <span class="mr-4 text-gray-800">Болезненно ли носить элайнеры?</span>
+                            <span class="accordion-icon text-brand font-bold text-3xl leading-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content bg-white text-gray-700">
+                            Элайнеры не вызывают боли, но в первые дни ношения новой капы может ощущаться легкое давление, которое быстро проходит.
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 4 -->
+                    <div class="accordion-item rounded-xl overflow-hidden shadow-md">
+                        <button class="accordion-button w-full text-left p-4 md:p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 flex justify-between items-center btn-large text-sm md:text-lg font-medium" aria-expanded="false">
+                            <span class="mr-4 text-gray-800">Как ухаживать за элайнерами?</span>
+                            <span class="accordion-icon text-brand font-bold text-3xl leading-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content bg-white text-gray-700">
+                            Для ухода достаточно очищать элайнеры под проточной водой и мягкой зубной щеткой. Не используйте горячую воду, чтобы избежать деформации.
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 5 -->
+                    <div class="accordion-item rounded-xl overflow-hidden shadow-md">
+                        <button class="accordion-button w-full text-left p-4 md:p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 flex justify-between items-center btn-large text-sm md:text-lg font-medium" aria-expanded="false">
+                            <span class="mr-4 text-gray-800">Как часто нужно носить элайнеры?</span>
+                            <span class="accordion-icon text-brand font-bold text-3xl leading-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="accordion-content bg-white text-gray-700">
+                            Элайнеры нужно носить не менее 22 часов в сутки, снимая только во время еды и чистки зубов.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Секция статей -->
+            <div class="mb-10 mt-16">
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Полезные статьи</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Статья 1 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://img.freepik.com/free-photo/side-view-hands-with-dental-care-products_23-2149867051.jpg" alt="Изображение для статьи 'Мифы и правда об элайнерах'" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold text-lg text-gray-800 mb-2">Мифы и правда об элайнерах</h4>
+                            <p class="text-sm text-gray-600 mb-4">Разбираем самые популярные заблуждения о прозрачных капах.</p>
+                            <a href="#" class="inline-flex items-center text-brand font-medium">
+                                Читать
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Статья 2 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://img.freepik.com/free-photo/side-view-hands-with-dental-care-products_23-2149867051.jpg" alt="Изображение для статьи 'Как правильно ухаживать за улыбкой'" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold text-lg text-gray-800 mb-2">Как правильно ухаживать за улыбкой</h4>
+                            <p class="text-sm text-gray-600 mb-4">Подробное руководство по уходу за зубами во время лечения.</p>
+                            <a href="#" class="inline-flex items-center text-brand font-medium">
+                                Читать
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Статья 3 -->
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                        <img src="https://img.freepik.com/free-photo/side-view-hands-with-dental-care-products_23-2149867051.jpg" alt="Изображение для статьи '5 причин выбрать элайнеры'" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-semibold text-lg text-gray-800 mb-2">5 причин выбрать элайнеры, а не брекеты</h4>
+                            <p class="text-sm text-gray-600 mb-4">Почему современные капы стали популярной альтернативой брекетам.</p>
+                            <a href="#" class="inline-flex items-center text-brand font-medium">
+                                Читать
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+                    const content = button.nextElementSibling;
+
+                    // Закрываем все другие открытые аккордеоны
+                    accordionButtons.forEach(otherButton => {
+                        if (otherButton !== button && otherButton.getAttribute('aria-expanded') === 'true') {
+                            otherButton.setAttribute('aria-expanded', 'false');
+                            otherButton.nextElementSibling.classList.remove('expanded');
+                        }
+                    });
+
+                    // Открываем или закрываем текущий
+                    button.setAttribute('aria-expanded', !expanded);
+                    if (!expanded) {
+                        content.classList.add('expanded');
+                    } else {
+                        content.classList.remove('expanded');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

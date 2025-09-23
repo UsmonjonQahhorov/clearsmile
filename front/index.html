@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearSmile: Элайнеры для выравнивания зубов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+        
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index-styles.css">
+
+    
+</head>
+<body class="bg-white text-gray-800">
+    
+    <!-- Nav Bar -->
+     <nav class="flex justify-between items-center w-full sticky top-0 z-40 bg-white/90 backdrop-blur-sm px-4 md:px-6 py-4 shadow-md transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <!-- Updated image size with Tailwind classes -->
+                <img class="w-32 h-auto" src='https://static.wixstatic.com/media/a6481f_952312c07b8b4b8dbfd95d3a36d7d0da~mv2.png/v1/fill/w_172,h_49,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_CS_Blue%202.png' alt="Логотип Clearsmile"/>
+            </div>
+            
+
+            <!-- Desktop Menu (visible on screens >= md) -->
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="price.html" class="text-gray-800 px-6 py-2">Стоимость</a>
+                <a href="clinics.html" class="text-gray-800 px-6 py-2">Клиники</a>
+                <a href="faq.html" class="text-gray-800 px-6 py-2">Вопрос-ответ</a>
+                <a href="tel:+998994020535" class="btn-brand text-white px-6 py-2 rounded-full font-semibold transition-colors">Позвонить</a>
+            </div>
+
+            
+            <!-- Hamburger Button (visible on screens < md) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-800  focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu-container md:hidden flex flex-col items-center justify-center p-8">
+        <!-- Close Button -->
+        <button id="close-menu-button" class="absolute top-6 right-6 text-gray-600 hover:text-blue-600 focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <!-- Menu Links -->
+        <nav class="flex flex-col items-center space-y-6 text-2xl font-semibold">
+            <a href="#" class="text-gray-800 hover:text-blue-600 transition duration-300">Стоимость</a>
+            <a href="#" class="text-gray-800 hover:text-blue-600 transition duration-300">Клиники</a>
+            <a href="#" class="text-gray-800 hover:text-blue-600 transition duration-300">Вопрос-ответ</a>
+            <a href="tel:+998994020535" class="bg-brand text-white px-8 py-3 rounded-full font-semibold text-center mt-8 hover:bg-brand transition-colors">Позвонить</a>
+        </nav>
+    </div>
+    
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden pt-12 pb-16 md:pb-20 lg:pb-24">
+        <div class="absolute inset-0 top-0 bg-brand opacity-10"></div>
+        <div class="relative container mx-auto px-4 z-10">
+            <div class="flex">
+                <!-- Single Content Block -->
+                <div class="w-full px-2">
+                    <div class="flex flex-col lg:flex-row items-center justify-between">
+                        <!-- Text -->
+                        <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900 mb-4">
+                                Ровные зубы без брекетов <br> с элайнерами <span class="text-brand">от 8 месяцев</span>
+                            </h1>
+                            <ul class="text-lg md:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
+                                <li>• Никаких проволок и боли</li>
+                                <li>• Удобнее и быстрее, чем брекеты</li>
+                                <li>• Снимаются за секунду – ешьте, пейте  без ограничений</li>
+                            </ul>
+                            <button class="quiz-trigger inline-block w-full md:w-auto btn-brand text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg transition-colors btn-hero-animated">
+                                Узнать срок лечения + получить подарок
+                            </button>
+                            <p class="mt-4 text-sm text-gray-600 max-w-sm mx-auto lg:mx-0">Ответьте на 5 простых вопросов и получите подарок</p>
+                        </div>
+                        <!-- Image -->
+                        <div class="lg:w-1/2 flex justify-center lg:justify-end">
+                            <img class="mirrored-image max-h-[400px] w-auto rounded-lg" src="https://implantolog-fedorov.ru/images/articles/elaynery-luchshie.webp" alt="Счастливая улыбающаяся женщина" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- How ClearSmile Aligners Work Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Элайнеры Clearsmile</h2>
+                    <p class="text-base text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        Элайнеры ClearSmile — это прозрачные капы, которые мягко и незаметно выравнивают зубы. Они не вызывают боли, не требуют сложного ухода и не мешают привычному образу жизни. Вы просто носите их в течение дня, меняете на новый комплект каждые 10 дней, и ваша улыбка становится идеальной.
+                    </p>
+                    <div class="mt-6 border-l-4 border-gray-300 pl-6 max-w-xl mx-auto lg:mx-0">
+                        <p class="text-base text-gray-700 italic font-medium">
+                            Наша клиническая экспертиза и запатентованные протокола позволяют лечить на элайнерах самые сложные кейсы вне зависимости от возраста.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-3xl rounded-3xl shadow-xl overflow-hidden video-card-container">
+                        <div class="video-card-overlay">
+                             <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21ZM10.5936 15.6517C10.1558 15.3514 9.87898 14.8576 9.87898 14.3315V9.6685C9.87898 9.14241 10.1558 8.64864 10.5936 8.34833C11.0314 8.04801 11.6033 8.04634 12.0427 8.34444L15.6534 10.8259C16.0333 11.0872 16.2575 11.4996 16.2575 11.9568C16.2575 12.4141 16.0333 12.8264 15.6534 13.0877L12.0427 15.5692C11.6033 15.8673 11.0314 15.8656 10.5936 15.6517Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatment Stages Section -->
+    <section class="py-16">
+        <div class="max-w-4xl w-full mx-auto p-6 bg-white rounded-2xl">
+            <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10">Этапы лечения</h1>
+        
+            <!-- Шаг 1: Консультация и диагностика -->
+            <div class="flex flex-col-reverse md:flex-row items-center gap-8 mb-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/400x400/D1D5DB/ffffff" alt="Врач и пациент во время консультации" class="rounded-2xl shadow-lg w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-2xl font-semibold text-brand mb-2">Шаг 1</h2>
+                    <h3 class="text-xl font-medium text-gray-700 mb-4">Консультация и диагностика</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        На первой встрече врач-ортодонт проведет осмотр, сделает 3D-снимки ваших зубов и ответит на все вопросы. Это основа для создания вашего идеального плана лечения.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Шаг 2: Планирование лечения -->
+            <div class="flex flex-col-reverse md:flex-row-reverse items-center gap-8 mb-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/400x400/E0F7FA/ffffff?text=3D+План" alt="3D-модель плана лечения" class="rounded-2xl shadow-lg w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-2xl font-semibold text-brand mb-2">Шаг 2</h2>
+                    <h3 class="text-xl font-medium text-gray-700 mb-4">Планирование лечения</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Мы создадим виртуальную 3D-модель, которая покажет, как именно будут двигаться ваши зубы. Вы увидите конечный результат еще до начала ношения элайнеров.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Шаг 3: Получение и установка кап -->
+            <div class="flex flex-col-reverse md:flex-row items-center gap-8 mb-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/400x400/D1D5DB/ffffff" alt="Передача набора элайнеров" class="rounded-2xl shadow-lg w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-2xl font-semibold text-brand mb-2">Шаг 3</h2>
+                    <h3 class="text-xl font-medium text-gray-700 mb-4">Получение и установка кап</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ваш индивидуальный набор элайнеров готов! Врач покажет, как правильно надевать и снимать капы, и даст все необходимые рекомендации по уходу.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Шаг 4: Лечение -->
+            <div class="flex flex-col-reverse md:flex-row-reverse items-center gap-8 mb-12">
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/400x400/E0F7FA/ffffff?text=Результат" alt="Счастливая улыбка после лечения" class="rounded-2xl shadow-lg w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-2xl font-semibold text-brand mb-2">Шаг 4</h2>
+                    <h3 class="text-xl font-medium text-gray-700 mb-4">Лечение</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Вы носите капы 22 часа в сутки, меняя их на новую пару каждые 2 недели. Посещения врача требуются редко, лишь для контроля прогресса. Ваша улыбка преображается незаметно для окружающих.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Benefits Section (NEW) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Преимущества лечения на элайнерах Clearsmile</h2>
+            <!-- Desktop layout -->
+            <div class="hidden md:block">
+                <div class="interactive-benefits-container">
+                    <img src="https://eurokappa.ru/how-work/aligners-or-braces/images/planel.png" alt="ClearSmile Aligners" class="central-image">
+                    
+                    <div id="feature-points-desktop">
+                        <!-- Point 1: Незаметность -->
+                        <div class="feature-point active" style="top: 28%; left: 47%;">
+                            <div class="point-dot"></div>
+                            <div class="feature-tooltip" style="bottom: 50px; left: -20px;">
+                                <h4 class="font-bold text-lg mb-2 text-gray-800">Незаметность</h4>
+                                <p class="text-gray-600 text-sm">Элайнеры ClearSmile абсолютно прозрачны, их не видно, даже когда Вы улыбаетесь.</p>
+                            </div>
+                        </div>
+
+                        <!-- Point 2: Редкие визиты (Swapped) -->
+                        <div class="feature-point active" style="top: 35%; right: 30%;">
+                             <div class="point-dot"></div>
+                            <div class="feature-tooltip" style="top: -40px;left: 60px;text-align: right;">
+                                <h4 class="font-bold text-lg mb-2 text-gray-800">Редкие визиты</h4>
+                                <p class="text-gray-600 text-sm">Вы приходите в клинику всего 1 раз в 2 месяца для контроля.</p>
+                            </div>
+                        </div>
+
+                        <!-- Point 3: Гигиена -->
+                        <div class="feature-point active" style="bottom: 29%; left: 37%;">
+                            <div class="point-dot"></div>
+                            <div class="feature-tooltip" style="top: 30px; right: 25px;">
+                                <h4 class="font-bold text-lg mb-2 text-gray-800">Гигиена</h4>
+                                <p class="text-gray-600 text-sm">Можно снять на время еды и чистки зубов — никаких ограничений в рационе.</p>
+                            </div>
+                        </div>
+                        
+                         <!-- Point 4: Быстрее -->
+                        <div class="feature-point active" style="bottom: 33%; right: 39%;">
+                             <div class="point-dot"></div>
+                            <div class="feature-tooltip" style="top: 46px; left: 35px; text-align: right;">
+                                <h4 class="font-bold text-lg mb-2 text-gray-800">Быстрее брекетов</h4>
+                                <p class="text-gray-600 text-sm">Лечение на 65% быстрее, чем на брекетах — в среднем 8-12 месяцев.</p>
+                            </div>
+                        </div>
+
+                         <!-- Point 5: Эффективность (Swapped) -->
+                         <div class="feature-point active" style="top: 33%; left: 27%;">
+                             <div class="point-dot"></div>
+                             <div class="feature-tooltip" style="top: -60px; right: 33px;">
+                                 <h4 class="font-bold text-lg mb-2 text-gray-800">Эффективность</h4>
+                                 <p class="text-gray-600 text-sm">Запатентованный немецкий трехслойный материал позволяет лечить на элайнерах самые сложные кейсы.</p>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Layout -->
+            <div class="block md:hidden">
+                <div class="interactive-benefits-container">
+                    <div class="central-image-wrapper">
+                         <img src="https://static.tildacdn.com/tild3161-3832-4433-b033-643534343134/photo.png" alt="ClearSmile Aligners" class="central-image">
+                    </div>
+                    <div id="feature-points-mobile" class="features-list">
+                         <!-- Item 1 -->
+                        <div class="feature-point">
+                            <div class="feature-mobile-trigger font-semibold">Незаметность</div>
+                            <div class="feature-tooltip p-4 bg-white border-t">
+                                <p class="text-gray-600">Элайнеры ClearSmile абсолютно прозрачны, их не видно, даже когда Вы улыбаетесь.</p>
+                            </div>
+                        </div>
+                         <!-- Item 2 (Swapped) -->
+                         <div class="feature-point">
+                            <div class="feature-mobile-trigger font-semibold">Редкие визиты</div>
+                            <div class="feature-tooltip p-4 bg-white border-t">
+                                <p class="text-gray-600">Вы приходите в клинику всего 1 раз в 2 месяца для контроля.</p>
+                            </div>
+                        </div>
+                         <!-- Item 3 -->
+                         <div class="feature-point">
+                            <div class="feature-mobile-trigger font-semibold">Гигиена</div>
+                            <div class="feature-tooltip p-4 bg-white border-t">
+                                <p class="text-gray-600">Можно снять на время еды и чистки зубов — никаких ограничений в рационе.</p>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                         <div class="feature-point">
+                            <div class="feature-mobile-trigger font-semibold">Быстрее брекетов</div>
+                            <div class="feature-tooltip p-4 bg-white border-t">
+                                <p class="text-gray-600">Лечение на 65% быстрее, чем на брекетах — в среднем 8-12 месяцев.</p>
+                            </div>
+                        </div>
+                        <!-- Item 5 (Swapped) -->
+                         <div class="feature-point ">
+                            <div class="feature-mobile-trigger font-semibold">Эффективность</div>
+                            <div class="feature-tooltip p-4 bg-white border-t">
+                                <p class="text-gray-600">Запатентованный немецкий трехслойный материал позволяет лечить на элайнерах самые сложные кейсы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-white text-brand border-2 border-brand px-8 py-4 rounded-full font-bold shadow-lg hover:bg-brand-light transition-colors">
+                    Сравнить элайнеры и брекеты
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems & Cases Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12">Узнаёте свою проблему? <br/> Вот как мы её уже решили для других</h2>
+            <div class="max-w-4xl w-full mx-auto p-6 bg-white rounded-2xl ">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Left Column: Tabs -->
+                    <div class="md:w-1/3 flex-shrink-0">
+                        <div id="tabs-container" class="space-y-4">
+                            <button data-tab="1" class="tab-button w-full text-left p-4 rounded-xl transition duration-300 ease-in-out hover:bg-gray-100 text-gray-700 font-medium active">
+                                Скученность
+                            </button>
+                            <button data-tab="2" class="tab-button w-full text-left p-4 rounded-xl transition duration-300 ease-in-out hover:bg-gray-100 text-gray-700 font-medium">
+                                Перекрестный прикус
+                            </button>
+                            <button data-tab="3" class="tab-button w-full text-left p-4 rounded-xl transition duration-300 ease-in-out hover:bg-gray-100 text-gray-700 font-medium">
+                                Промежутки
+                            </button>
+                            <button data-tab="4" class="tab-button w-full text-left p-4 rounded-xl transition duration-300 ease-in-out hover:bg-gray-100 text-gray-700 font-medium">
+                                Глубокий прикус
+                            </button>
+                            <button data-tab="5" class="tab-button w-full text-left p-4 rounded-xl transition duration-300 ease-in-out hover:bg-gray-100 text-gray-700 font-medium">
+                                Торчащие зубы
+                            </button>
+                             <button data-tab="6" class="tab-button w-full text-left p-4 rounded-xl transition duration-300 ease-in-out hover:bg-gray-100 text-gray-700 font-medium">
+                                Открытый прикус
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Images and Text -->
+                    <div id="content-display" class="md:w-2/3 flex flex-col items-center">
+                        <div class="w-full">
+                            <img id="case-image" src="https://placehold.co/400x300/D1D5DB/ffffff?text=Результат" alt="Результат лечения" class="rounded-2xl shadow-lg w-full object-cover">
+                        </div>
+                        <div class="mt-6 text-center">
+                            <p id="tab-text" class="text-gray-600 leading-relaxed">Пациенту 40 лет. Проблема — скученность.</p>
+                            <p id="tab-text-result" class="text-gray-600 leading-relaxed">Результат за 11 месяцев: идеальный прикус.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                 <a href="cases.html" class="inline-block bg-white text-brand border-2 border-brand px-8 py-4 rounded-full font-bold shadow-lg hover:bg-brand-light transition-colors">
+                    Смотреть другие кейсы
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Video Testimonials Section -->
+    <section class="py-16 bg-white" id="video-testimonials">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Видео-отзывы наших пациентов</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Video 1 -->
+                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl group">
+                    <img src="https://placehold.co/600x400/D1D5DB/ffffff?text=Видео+отзыв+1" alt="Видео отзыв 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 cursor-pointer">
+                        <div class="w-16 h-16 bg-white/70 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                            <svg class="w-8 h-8 text-brand" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl group">
+                    <img src="https://placehold.co/600x400/D1D5DB/ffffff?text=Видео+отзыв+2" alt="Видео отзыв 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 cursor-pointer">
+                        <div class="w-16 h-16 bg-white/70 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                            <svg class="w-8 h-8 text-brand" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6">Оставьте контакты и наш специалист свяжется с вами в ближайшее время:</h2>
+            <ul class="text-black text-lg space-y-2 mb-8 list-none px-0">
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Ответит на все вопросы</span>
+                </li>
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Поможет вам выбрать врача</span>
+                </li>
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Расскажет про лечение</span>
+                </li>
+                <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-brand mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Поможет понять, подходит ли вам лечение</span>
+                </li>
+            </ul>
+            <form id="contact-form" class="space-y-6">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand-light transition-all duration-200" required>
+                </div>
+                <div>
+                    <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand-light transition-all duration-200" required>
+                </div>
+                <button type="submit" class="w-full btn-brand text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-opacity-90 transition-colors">
+                    Отправить заявку
+                </button>
+            </form>
+        </div>
+    </section>
+
+     <!-- Video Modal -->
+    <!-- <div id="video-modal" class="video-modal"> -->
+        <!-- <span class="video-modal-close" id="close-video-btn">&times;</span> -->
+        <!-- <div class="video-modal-content"> -->
+            <!-- Add a video player here (e.g., iframe) -->
+            <!-- <iframe id="video-player" width="100%" height="450" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <!-- </div> -->
+    <!-- </div> -->
+
+   <!-- Quiz Modal -->
+    <div id="quiz-modal" class="hidden">
+        <div class="w-full max-w-4xl relative">
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full transform transition-all duration-300">
+                <button id="close-quiz-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold z-10">&times;</button>
+                
+                <!-- New container for progress bar to control its width -->
+                <div class="flex flex-col items-center md:px-8">
+                    <div class="w-full quiz-progress-container">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+                            <div id="progress-bar-quiz" class="bg-brand h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quiz-questions-container">
+                    <!-- Questions will be injected here -->
+                </div>
+                
+                <div class="flex justify-between mt-8">
+                    <!-- Button will be hidden on the first question via JS -->
+                    <button id="back-btn" class="quiz-btn-nav bg-brand text-white px-6 py-2 rounded-full font-semibold">Назад</button>
+                </div>
+            </div>
+
+            <!-- Certificate Container -->
+             <div id="certificate-container" class="hidden bg-white rounded-2xl shadow-2xl w-full transform transition-all duration-300 overflow-y-auto max-h-[95vh]">
+                 <button id="close-cert-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold z-10">&times;</button>
+                 
+                 <!-- NEW PROGRESS BAR SECTION -->
+                 <div class="p-6 md:p-8 md:px-16">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-sm font-semibold text-gray-600">Отлично. Последний шаг!</p>
+                        <p id="progress-text-cert" class="text-sm font-semibold text-brand pr-4">95%</p>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div id="progress-bar-cert" class="bg-brand h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                 </div>
+                 
+                 <div id="certificate-container-inner" class="flex flex-col md:flex-row p-6 md:p-8 md:space-x-8">
+                     <!-- Image section -->
+                    <div class="flex-shrink-0 mb-6 md:mb-0 w-full md:w-1/2 flex justify-center items-center">
+                        <img id="certificate-image" src="https://implantolog-fedorov.ru/images/articles/elaynery-luchshie.webp" alt="Подарочный сертификат" class="certificate-img">
+                    </div>
+                     <!-- Form section -->
+                    <div id="certificate-form" class="w-full md:w-1/2">
+                         <h3 class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-2 md:mb-4">
+                             Оставьте свои контакты и получите скидку<br class="hidden md:block"> 1 000 000 сум на элайнеры.
+                         </h3>
+                         <h2 class="text-lg text-center text-gray-500 mb-4 md:mb-6">
+                             Наш специалист перезвонит вам и зафиксирует за вами скидку.
+                         </h2>
+                         <form id="certificate-submit-form" class="space-y-4">
+                             <input type="text" placeholder="Ваше имя" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand" required>
+                             <input type="tel" placeholder="Ваш телефон" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand" required>
+                             <button type="submit" class="w-full btn-brand text-white px-8 py-3 rounded-full font-bold shadow-lg transition-colors">Активировать и записаться</button>
+                         </form>
+                         <button id="print-btn" class="w-full mt-4 bg-gray-200 text-gray-800 px-8 py-3 rounded-full font-bold hover:bg-gray-300 transition-colors">Распечатать сертификат</button>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Tab Logic ---
+            const tabs = document.querySelectorAll('.tab-button');
+            const caseImage = document.getElementById('case-image');
+            const tabText = document.getElementById('tab-text');
+            const tabTestResult = document.getElementById('tab-text-result')
+            const tabContent = {
+                '1': { image: 'https://placehold.co/400x300/D1D5DB/ffffff?text=Скученность', textResult: 'Результат за 11 месяцев: идеальный прикус', text: `Пациенту 40 лет. Проблема — скученность.` },
+                '2': { image: 'https://placehold.co/400x300/D1D5DB/ffffff?text=Перекрестный+прикус', textResult: 'Результат за 9 месяцев: идеальный прикус', text: `Пациенту 26 лет. Проблема — перекрестный прикус.` },
+                '3': { image: 'https://placehold.co/400x300/D1D5DB/ffffff?text=Промежутки', textResult: 'Результат за 16 месяцев: идеальный прикус', text: 'Пациенту 38 лет. Проблема — промежутки между зубами.' },
+                '4': { image: 'https://placehold.co/400x300/D1D5DB/ffffff?text=Глубокий+прикус', textResult: 'Результат за 14 месяцев: идеальный прикус', text: 'Пациенту 32 года. Проблема — глубокий прикус.' },
+                '5': { image: 'https://placehold.co/400x300/D1D5DB/ffffff?text=Торчащие+зубы', textResult: 'Результат за 8 месяцев: идеальный прикус', text: 'Пациенту 20 лет. Проблема — торчащие зубы.' },
+                '6': { image: 'https://placehold.co/400x300/D1D5DB/ffffff?text=Открытый+прикус', textResult: 'Результат за 13 месяцев: идеальный прикус', text: 'Пациенту 29 лет. Проблема — открытый прикус.' }
+            };
+            
+            if (tabs.length > 0) {
+                const updateTabContent = (tabId) => {
+                    const content = tabContent[tabId];
+                    if (content) {
+                        caseImage.src = content.image;
+                        tabText.textContent = content.text;
+                        tabTestResult.textContent = content.textResult;
+                    }
+                };
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        updateTabContent(tab.getAttribute('data-tab'));
+                    });
+                });
+                tabs[0].classList.add('active');
+                updateTabContent(tabs[0].getAttribute('data-tab'));
+            }
+
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.add('open'));
+                closeMenuButton.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            }
+            
+            // --- Interactive Benefits Mobile Accordion ---
+            const mobileFeaturePoints = document.querySelectorAll('#feature-points-mobile .feature-point');
+
+            mobileFeaturePoints.forEach(point => {
+                const trigger = point.querySelector('.feature-mobile-trigger');
+                if (trigger) {
+                    trigger.addEventListener('click', () => {
+                        const wasActive = point.classList.contains('active');
+                        mobileFeaturePoints.forEach(p => p.classList.remove('active'));
+                        if (!wasActive) {
+                            point.classList.add('active');
+                        }
+                    });
+                }
+            });
+
+      // --- Quiz Logic ---
+            const quizModal = document.getElementById('quiz-modal');
+            const quizTriggers = document.querySelectorAll('.quiz-trigger');
+            const closeQuizBtn = document.getElementById('close-quiz-btn');
+            const closeCertBtn = document.getElementById('close-cert-btn');
+
+            const quizContainer = document.getElementById('quiz-container');
+            const questionsContainer = document.getElementById('quiz-questions-container');
+            const progressBarQuiz = document.getElementById('progress-bar-quiz');
+            const progressBarCert = document.getElementById('progress-bar-cert');
+            const progressTextCert = document.getElementById('progress-text-cert');
+            const backBtn = document.getElementById('back-btn');
+            
+            const certificateContainer = document.getElementById('certificate-container');
+            const certificateImage = document.getElementById('certificate-image');
+            const certificateForm = document.getElementById('certificate-submit-form');
+            const printBtn = document.getElementById('print-btn');
+
+            // Setting the certificate image
+            certificateImage.src = "https://photoshop-kopona.com/uploads/posts/2018-04/1524898820_certificate-frame-2.jpg";
+
+
+            const questions = [
+                {
+                    question: "Что вас больше всего беспокоит в вашей улыбке?",
+                    options: ["Кривые зубы", "Промежутки между зубами", "Скученность зубов", "Неправильный прикус"]
+                },
+                {
+                    question: "Носили ли вы брекеты ранее?",
+                    options: ["Да, носил(а)", "Нет, никогда не носил(а)"]
+                },
+                {
+                    question: "Насколько для вас важна незаметность лечения?",
+                    options: ["Очень важна, не хочу, чтобы кто-то видел", "Желательно, но не критично", "Совершенно не важна"]
+                },
+                {
+                    question: "Укажите ваш возраст:",
+                    options: ["До 18 лет", "18-30 лет", "31-45 лет", "Более 45 лет"]
+                },
+                {
+                    question: "Готовы ли вы начать свой путь к идеальной улыбке?",
+                    options: ["Да, я готов(а)!", "Пока только думаю об этом"]
+                }
+            ];
+            let currentQuestionIndex = 0;
+            const userAnswers = new Array(questions.length).fill(null);
+
+            const openModal = () => quizModal.classList.remove('hidden');
+            const closeModal = () => {
+                quizModal.classList.add('hidden');
+                // Reset quiz on close
+                setTimeout(() => {
+                    currentQuestionIndex = 0;
+                    userAnswers.fill(null);
+                    showQuestion(0);
+                    certificateContainer.classList.add('hidden');
+                    quizContainer.classList.remove('hidden');
+                    updateProgressBar(0, 'quiz');
+                }, 300);
+            };
+
+            const renderQuestion = (index) => {
+                questionsContainer.innerHTML = ''; // Clear previous
+                const q = questions[index];
+                const questionEl = document.createElement('div');
+                questionEl.className = 'quiz-question active';
+                questionEl.innerHTML = `<h3 class="text-xl font-semibold text-center mb-6">${q.question}</h3>
+                    <div class="space-y-3">
+                        ${q.options.map((option, i) => `
+                            <div class="quiz-option border-2 border-gray-200 rounded-xl p-4 cursor-pointer text-center font-medium hover:border-brand-light hover:bg-gray-50 ${userAnswers[index] === option ? 'selected' : ''}" data-option="${option}">
+                                ${option}
+                            </div>
+                        `).join('')}
+                    </div>`;
+                questionsContainer.appendChild(questionEl);
+                
+                questionEl.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.addEventListener('click', (e) => {
+                        userAnswers[index] = e.target.dataset.option;
+                        
+                        // Automatically go to the next question or show the certificate
+                        if (currentQuestionIndex < questions.length - 1) {
+                            currentQuestionIndex++;
+                            showQuestion(currentQuestionIndex);
+                        } else {
+                            showCertificate();
+                        }
+                    });
+                });
+            };
+
+            const updateProgressBar = (percentage, type) => {
+                 if (type === 'quiz') {
+                     progressBarQuiz.style.width = `${percentage}%`;
+                 } else if (type === 'cert') {
+                     progressBarCert.style.width = `${percentage}%`;
+                 }
+            };
+
+            const updateControls = () => {
+                const progressPercentage = ((currentQuestionIndex) / questions.length) * 100;
+                updateProgressBar(progressPercentage, 'quiz');
+                
+                // Show or hide the back button
+                if (currentQuestionIndex > 0) {
+                    backBtn.classList.remove('hidden');
+                } else {
+                    backBtn.classList.add('hidden');
+                }
+            };
+            
+            const showQuestion = (index) => {
+                renderQuestion(index);
+                updateControls();
+            };
+
+            const showCertificate = () => {
+                quizContainer.classList.add('hidden');
+                certificateContainer.classList.remove('hidden');
+                updateProgressBar(95, 'cert'); // Set progress to 95% on the certificate page
+            };
+
+            // Event Listeners
+            quizTriggers.forEach(btn => btn.addEventListener('click', openModal));
+            closeQuizBtn.addEventListener('click', closeModal);
+            closeCertBtn.addEventListener('click', closeModal);
+            quizModal.addEventListener('click', (e) => {
+                if(e.target === quizModal) closeModal();
+            });
+
+            backBtn.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    showQuestion(currentQuestionIndex);
+                }
+            });
+            
+            printBtn.addEventListener('click', () => {
+                window.print();
+            });
+
+            // Handle form submission on the certificate page
+            certificateForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                updateProgressBar(100, 'cert');
+                if (progressTextCert) {
+                    progressTextCert.textContent = "100% пройдено";
+                }
+                alert("Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.");
+                setTimeout(closeModal, 1500); // Close the modal after a short delay
+            });
+
+            // Initial call
+            if (questionsContainer) {
+                 showQuestion(0);
+            }
+        });
+    </script>
+    </body>
+</html>
+
+
+
