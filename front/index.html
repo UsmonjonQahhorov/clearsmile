@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClearSmile: Элайнеры для выравнивания зубов</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="index-styles.css">
+    <link rel="stylesheet" href="style/index-styles.css">
 
     
 </head>
@@ -22,8 +23,10 @@
      <nav class="flex justify-between items-center w-full sticky top-0 z-40 bg-white/90 backdrop-blur-sm px-4 md:px-6 py-4 shadow-md transition-all duration-300">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2">
+                <a href="index.html">
+                    <img class="w-32 h-auto" src='https://static.wixstatic.com/media/a6481f_952312c07b8b4b8dbfd95d3a36d7d0da~mv2.png/v1/fill/w_172,h_49,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_CS_Blue%202.png' alt="Логотип Clearsmile"/>
+                </a>
                 <!-- Updated image size with Tailwind classes -->
-                <img class="w-32 h-auto" src='https://static.wixstatic.com/media/a6481f_952312c07b8b4b8dbfd95d3a36d7d0da~mv2.png/v1/fill/w_172,h_49,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_CS_Blue%202.png' alt="Логотип Clearsmile"/>
             </div>
             
 
@@ -34,7 +37,6 @@
                 <a href="faq.html" class="text-gray-800 px-6 py-2">Вопрос-ответ</a>
                 <a href="tel:+998994020535" class="btn-brand text-white px-6 py-2 rounded-full font-semibold transition-colors">Позвонить</a>
             </div>
-
 
             
             <!-- Hamburger Button (visible on screens < md) -->
@@ -348,31 +350,143 @@
     
     <!-- Video Testimonials Section -->
     <section class="py-16 bg-white" id="video-testimonials">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">Видео-отзывы наших пациентов</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Video 1 -->
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl group">
-                    <img src="https://placehold.co/600x400/D1D5DB/ffffff?text=Видео+отзыв+1" alt="Видео отзыв 1" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 cursor-pointer">
-                        <div class="w-16 h-16 bg-white/70 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                            <svg class="w-8 h-8 text-brand" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
+        
+        <div class="w-full">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-10">Видео-отзывы наших пациентов</h1>
+
+        <div class="full-slider-wrapper">
+            <!-- Кнопка "Назад" с повернутой белой иконкой -->
+            <button id="prevBtn" class="slider-button">
+                <img src="https://cdn-icons-png.flaticon.com/128/271/271228.png" alt="Назад">
+            </button>
+
+            <div class="video-slider-container">
+                <div class="video-slider">
+                    <!-- First video card with Instagram link -->
+                    <a href="https://www.instagram.com/p/DO8R2h2DF99/" target="_blank" class="block rounded-xl">
+                        <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                            <div class="video-container">
+                                <video controls>
+                                    <source src="https://assets.mixkit.co/videos/preview/mixkit-a-beautiful-girl-with-a-healthy-smile-in-the-snow-37968-large.mp4" type="video/mp4">
+                                    Ваш браузер не поддерживает видео HTML5.
+                                </video>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-semibold text-lg text-gray-700">Отзыв от Марии</h3>
+                                <p class="text-sm text-gray-500 mt-1">"Очень довольна результатом лечения!"</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Other video cards (content is unchanged) -->
+                    <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-happy-and-smiling-woman-5079-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Ивана</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Профессионалы своего дела. Рекомендую!"</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-smiling-young-man-with-a-camera-5026-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Анны</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Безболезненно и качественно. Спасибо!"</p>
+                        </div>
+                    </div>
+
+                     <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-with-brown-hair-on-the-phone-in-a-park-15555-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Петра</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Быстро и эффективно. Теперь я улыбаюсь!"</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-smiling-woman-talking-to-camera-and-pointing-4389-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Ольги</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Лучшая клиника в городе!"</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-man-with-a-gray-t-shirt-and-a-baseball-cap-2661-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Сергея</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Очень комфортное лечение, без боли."</p>
+                        </div>
+                    </div>
+
+                     <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-with-brown-hair-on-the-phone-in-a-park-15555-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Екатерины</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Моя улыбка стала идеальной!"</p>
+                        </div>
+                    </div>
+                    <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-happy-man-with-a-green-t-shirt-2647-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Дениса</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Никаких неудобств, результат превзошел ожидания."</p>
+                        </div>
+                    </div>
+                    <div class="video-card bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+                         <div class="video-container">
+                            <video controls>
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-a-young-couple-laughing-in-the-park-24354-large.mp4" type="video/mp4">
+                                Ваш браузер не поддерживает видео HTML5.
+                            </video>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg text-gray-700">Отзыв от Кристины</h3>
+                            <p class="text-sm text-gray-500 mt-1">"Друзья даже не заметили, что я ношу элайнеры!"</p>
                         </div>
                     </div>
                 </div>
-                <!-- Video 2 -->
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl group">
-                    <img src="https://placehold.co/600x400/D1D5DB/ffffff?text=Видео+отзыв+2" alt="Видео отзыв 2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 cursor-pointer">
-                        <div class="w-16 h-16 bg-white/70 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                            <svg class="w-8 h-8 text-brand" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+            </div>
+
+            <!-- Кнопка "Вперед" с белой иконкой -->
+            <button id="nextBtn" class="slider-button">
+                <img src="https://cdn-icons-png.flaticon.com/128/271/271228.png" alt="Вперед">
+            </button>
             </div>
         </div>
     </section>
@@ -716,7 +830,9 @@
                  showQuestion(0);
             }
         });
+        
     </script>
+    <script src="js/slider.js"></script>
     </body>
 </html>
 

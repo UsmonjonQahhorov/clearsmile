@@ -1,0 +1,210 @@
+/* Quiz Modal Styles */
+#quiz-modal {
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+}
+#quiz-modal.hidden {
+    display: none;
+}
+#quiz-container, #certificate-container {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.quiz-question {
+    display: none;
+}
+.quiz-question.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.quiz-option {
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.quiz-option.selected {
+    background-color: #e0f7fa;
+    border-color: #4DC7E3;
+    box-shadow: 0 4px 12px rgba(77, 199, 227, 0.2);
+    transform: translateY(-2px);
+}
+.quiz-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Quiz Button Styles */
+.quiz-btn-nav {
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.quiz-btn-nav.hidden {
+    display: none;
+}
+.quiz-btn-nav.disabled {
+    box-shadow: none;
+    cursor: not-allowed;
+    display: none;
+}
+
+/* Certificate Styles */
+#certificate-content {
+    border: 10px solid #4DC7E3;
+    background-color: #f0fdff;
+}
+.certificate-img {
+    width: 450px;
+    height: 550px;
+    max-width: none;
+    object-fit: contain;
+}
+#certificate-container {
+    max-width: 900px;
+}
+@media (min-width: 768px) {
+    #certificate-container-inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width: 767px) {
+    #certificate-container-inner {
+        flex-direction: column;
+    }
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+}
+
+.full-slider-wrapper {
+    position: relative;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 50px;
+}
+
+.video-slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    max-width: 960px;
+    margin: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+}
+
+.video-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    scroll-behavior: smooth;
+}
+
+/* Video card styling to ensure 9:16 aspect ratio */
+.video-card {
+    flex: 0 0 auto;
+    width: 300px;
+    margin: 0 10px;
+    scroll-snap-align: start;
+    position: relative;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 177.77%; /* 9:16 aspect ratio (16/9 * 100) */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Updated styles for slider buttons */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #4DC7E3;
+    padding: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+/* Icon styles */
+.slider-button img {
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: invert(100%);
+    transition: transform 0.3s;
+    display: block;
+}
+
+/* Rotate left arrow */
+#prevBtn img {
+    transform: rotate(180deg);
+}
+
+/* Hover style */
+.slider-button:hover {
+    background-color: #36a6c2;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+#prevBtn {
+    left: 0px;
+}
+
+#nextBtn {
+    right: 0px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .video-slider-container {
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 640px) {
+    .video-slider-container {
+        max-width: 320px;
+    }
+    .video-card {
+        width: 300px;
+    }
+    .full-slider-wrapper {
+        padding: 0 20px;
+    }
+    #prevBtn {
+        left: -10px;
+    }
+    #nextBtn {
+        right: -10px;
+    }
+}
